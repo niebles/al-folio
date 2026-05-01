@@ -42,7 +42,7 @@ module ExternalPosts
           content: e.content,
           summary: e.summary,
           published: e.published
-        }, src)
+        }, e)
       end
     end
 
@@ -85,7 +85,7 @@ module ExternalPosts
         puts "...fetching #{post['url']}"
         content = fetch_content_from_url(post['url'])
         content[:published] = parse_published_date(post['published_date'])
-        create_document(site, src['name'], post['url'], content, src)
+        create_document(site, src['name'], post['url'], content, post)
       end
     end
 
